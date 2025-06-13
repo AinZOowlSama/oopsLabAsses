@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Alumni Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>Add Alumni</h1>
+    <form th:action="@{${alumni.id} != null ? '/alumni/update/' + ${alumni.id} : '/alumni/save'}"
+      th:object="${alumni}" method="post">
+
+        <label>Name: <input type="text" th:field="*{name}" /></label><br />
+        <label>Batch: <input type="text" th:field="*{batch}" /></label><br />
+        <label>Company: <input type="text" th:field="*{company}" /></label><br />
+        <label>Contact: <input type="text" th:field="*{contact}" /></label><br />
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

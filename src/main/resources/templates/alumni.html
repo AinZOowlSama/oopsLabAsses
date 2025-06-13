@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Alumni List</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <h1>All Alumni</h1>
+    <a th:href="@{/alumni/new}">Add New Alumni</a>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Batch</th>
+          <th>Company</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="alumni : ${alumniList}">
+          <td th:text="${alumni.id}"></td>
+          <td th:text="${alumni.name}"></td>
+          <td th:text="${alumni.batch}"></td>
+          <td th:text="${alumni.company}"></td>
+          <td th:text="${alumni.contact}"></td>
+          <td>
+            <a th:href="@{'/alumni/edit/' + ${alumni.id}}">Edit</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
