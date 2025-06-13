@@ -4,6 +4,7 @@ package com.labasses.proj.controller;
 import com.labasses.proj.model.Alumni;
 import com.labasses.proj.service.AlumniService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,6 +50,11 @@ public class AlumniController {
     alumniService.update(id, alumni);
     return "redirect:/alumni/view";
     }
-    
+    @DeleteMapping("/alumni/{id}")
+    public ResponseEntity<Void> deleteAlumni(@PathVariable Long id) {
+    alumniService.delete(id);
+    return ResponseEntity.noContent().build();
+}
+
 }
 
